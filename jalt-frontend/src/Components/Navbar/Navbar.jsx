@@ -1,11 +1,12 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import './navbar.css';
 
 const PAGES = [
   { label: 'Home', destination: '/' },
-  { label: 'View All Trains', destination: '/Trains' },
-  { label: 'View All Users', destination: '/Users' },
+  { label: 'Trains', destination: '/Trains' },
+  { label: 'Account', destination: '/Users' },
 ];
 
 function NavLink({ page }) {
@@ -17,16 +18,16 @@ function NavLink({ page }) {
   );
 }
 NavLink.propTypes = {
-  page: propTypes.shape({
-    label: propTypes.string.isRequired,
-    destination: propTypes.string.isRequired,
+  page: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    destination: PropTypes.string.isRequired,
   }).isRequired,
 };
 
 function Navbar() {
   return (
-    <nav>
-      <ul className="wrapper">
+    <nav className="navbar">
+      <ul className="nav-links">
         {PAGES.map((page) => <NavLink key={page.destination} page={page} />)}
       </ul>
     </nav>
