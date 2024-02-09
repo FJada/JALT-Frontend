@@ -7,6 +7,12 @@ SE-2024 Fall Group: Jada Forrester, Amy Fouzia, Lalit Mavuduri, Tanvi Saini repo
 
 Will use subway data to provide the user with the best route to their destination.
 
+## Running the App
+
+Run npm i
+npm install axios 
+
+
 ## Progress and Goals
 
 [Progress and Goals](ProgressAndGoals.md)
