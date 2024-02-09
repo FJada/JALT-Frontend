@@ -1,8 +1,9 @@
 import React from 'react';
+import './trains.css'; 
 
 function Trains() {
   return (
-    <div>
+    <div className="text">
       <h1>Trains</h1>
     </div>
   );

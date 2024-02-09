@@ -16,9 +16,9 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path = "" element ={<h1>Home</h1>}/>
+        <Route path = "" element ={<h1 className="text">Home</h1>}/>
         <Route path="trains" element={<Trains />} />
-        <Route path="users" element={<Users />} />
+        <Route path="users" element={<Users username="y/n" />} />
       </Routes>
     </BrowserRouter>
   );
