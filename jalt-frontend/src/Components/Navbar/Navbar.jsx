@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 const PAGES = [
   { label: 'Home', destination: '/' },
-  { label: 'View All Trains', destination: '/trains' },
-  { label: 'View All Users', destination: '/users' },
+  { label: 'View All Trains', destination: '/Trains' },
+  { label: 'View All Users', destination: '/Users' },
 ];
 
 function NavLink({ page }) {

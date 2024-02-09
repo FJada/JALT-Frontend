@@ -1,8 +1,11 @@
-// import React, { useEffect, useState } from 'react';
-// import propTypes from 'prop-types';
-// import axios from 'axios';
+import React from 'react';
 
-// import { BACKEND_URL } from '../../constants';
+function Trains() {
+  return (
+    <div>
+      <h1>Trains</h1>
+    </div>
+  );
+}
 
-
-// export default Trains;
+export default Trains;
