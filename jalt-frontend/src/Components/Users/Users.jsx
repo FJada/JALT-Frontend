@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function Users({ username }) {
 
-  const [error, setError] = useState('Initial Message');
+  const [error, setError] = useState('Below is our list of users fetched from our API Server:');
   const [users, setUsers] = useState([]);
 
   useEffect(
@@ -15,7 +15,7 @@ function Users({ username }) {
         const keys = Object.keys(usersObject);
         const usersArray = keys.map((key) => usersObject[key]);
         setUsers(usersArray);
-      })
+      }) // retrieves users
       .catch(() =>{setError('Something went wrong'); });
 
     },
