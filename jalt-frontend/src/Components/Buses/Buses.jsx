@@ -1,9 +1,9 @@
 import React from 'react';
-import './buses.css'; 
+import classes from '../../global.module.css'
 
 function Buses() {
   return (
-    <div className="text">
+    <div className={classes.text}>
       <h1>Buses</h1>
     </div>
   );

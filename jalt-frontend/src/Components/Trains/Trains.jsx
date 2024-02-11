@@ -1,9 +1,9 @@
 import React from 'react';
-import './trains.css'; 
+import classes from '../../global.module.css'
 
 function Trains() {
   return (
-    <div className="text">
+    <div className={classes.text}>
       <h1>Trains</h1>
     </div>
   );
