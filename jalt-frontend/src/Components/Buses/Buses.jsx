@@ -22,7 +22,7 @@ function Buses({BUS_NAME}) {
   );
   return (
     <div className={classes.text}>
-      <div className={classes.title}> <h>Buses</h> </div>
+      <div className={classes.title}> <h>Buses</h></div>
     
       {error && (<div className='error-message'>
         {error}
