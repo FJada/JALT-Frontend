@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import tunnelImage from '../Images/tunnel.jpg';
 import st42Image from '../Images/42st.jpg';
 import doorsImage from '../Images/doors.jpg';
-import stationImage from '../Images/station.jpg';
 import trainImage from '../Images/train.jpg';
 
 const Edges = () => {
-  const images = [tunnelImage, st42Image, doorsImage, stationImage, trainImage];
+  const images = [tunnelImage, st42Image, doorsImage, trainImage];
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -22,7 +21,7 @@ const Edges = () => {
     width: '20%',
     height: '100%',
     position: 'fixed',
-    top: 80,
+    top: 86,
     bottom: 0,
     zIndex: -1,
   };
