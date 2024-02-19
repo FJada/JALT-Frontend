@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import './navbar.css';
+import classes from '../../global.module.css'
 
 const PAGES = [
   { label: 'Home', destination: '/' },

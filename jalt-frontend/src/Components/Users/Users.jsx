@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './users.css'; 
+import classes from '../../global.module.css'
 import axios from 'axios';
 
 function Users({ username }) {
