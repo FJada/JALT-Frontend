@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './users.css'; 
+import classes from '../../global.module.css'
 import axios from 'axios';
 
 function Users({ username }) {
@@ -22,8 +22,8 @@ function Users({ username }) {
     [],
   );
   return (
-    <div className="text">
-      <h1>Hello, {username}</h1>
+    <div className={classes.text}>
+      <div className={classes.title}>Hello, {username} </div>
       <p>This is your account page.</p>
       {error && (<div className='error-message'>
         {error}

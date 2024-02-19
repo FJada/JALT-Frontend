@@ -1,6 +1,18 @@
+@font-face {
+    font-family: 'Arcade';
+    src: url('./Fonts/ARCADE.TTF') format('truetype');
+}
+  
+.title {
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Arcade', sans-serif;
+    font-size: 50px;
+}
+
 .text {
-    margin-left: 10px;
-  }
+  text-align: center;
+}
 
 body {
   margin: 0;
@@ -12,3 +24,42 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.navbar {
+  background-color: #023047;
+  color: #fff;
+  padding: 25px 0;
+  text-align: left;
+  font-family: Helvetica, Arial, sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.nav-links li {
+  display: inline;
+  margin-right: 30px;
+}
+
+.nav-links li:last-child {
+  margin-right: 0;
+}
+
+.nav-links li a {
+  color: #ffb703;
+  text-decoration: none;
+  font-size: 2.0em;
+  font-weight: bold;
+  transition: color 0.3s; /* Add transition for smooth color change */
+}
+
+.nav-links li a:hover {
+  color: #fff; /* Change color on hover */
+}
+
