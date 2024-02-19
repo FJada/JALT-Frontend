@@ -8,6 +8,9 @@ const PAGES = [
   {label:'Buses', destination:'/Buses'},
   { label: 'Trains', destination: '/Trains' },
   { label: 'Account', destination: '/Users' },
+  { label: 'Log-in', destination: '/Log-in' }
+
+
 ];
 
 function NavLink({ page }) {
