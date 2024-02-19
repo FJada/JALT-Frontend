@@ -25,7 +25,7 @@ function App() {
         <Route path ="" element ={<div className="title">Home</div>}/>
         <Route path="trains" element={<Trains />} />
         <Route path="buses" element={<Buses />} />
-        <Route path="users" element={<Users username="y/n" />} />
+        <Route path="users" element={<Users username="y/n" />} />    
       </Routes>
     </BrowserRouter>
   );
