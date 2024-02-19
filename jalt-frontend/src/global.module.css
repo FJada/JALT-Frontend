@@ -1,6 +1,18 @@
+@font-face {
+    font-family: 'Arcade';
+    src: url('./Fonts/ARCADE.TTF') format('truetype');
+}
+  
+.title {
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Arcade', sans-serif;
+    font-size: 50px;
+}
+
 .text {
-    margin-left: 10px;
-  }
+  text-align: center;
+}
 
 body {
   margin: 0;

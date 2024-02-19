@@ -2,6 +2,18 @@
   text-align: center;
 }
 
+@font-face {
+  font-family: 'Arcade';
+  src: url('./Fonts/ARCADE.TTF') format('truetype');
+}
+
+.title {
+  text-align: center;
+  margin-top: 10px;
+  font-family: 'Arcade', sans-serif;
+  font-size: 50px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -38,11 +50,11 @@
 }
 
 .text {
-  margin-left: 10px;
+  text-align: center;
 }
 
 .navbar {
-  background-color: #023047;
+  background-color: #27412b;
   color: #fff;
   padding: 25px 0;
   text-align: left;
@@ -68,7 +80,7 @@
 }
 
 .nav-links li a {
-  color: #ffb703;
+  color: #f7e8b5;
   text-decoration: none;
   font-size: 2.0em;
   font-weight: bold;
@@ -76,5 +88,5 @@
 }
 
 .nav-links li a:hover {
-  color: #fff; /* Change color on hover */
+  color: #ffffff; /* Change color on hover */
 }
