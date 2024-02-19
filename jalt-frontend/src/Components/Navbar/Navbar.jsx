@@ -5,6 +5,7 @@ import './navbar.css';
 
 const PAGES = [
   { label: 'Home', destination: '/' },
+  {label:'Buses', destination:'/Buses'},
   { label: 'Trains', destination: '/Trains' },
   { label: 'Account', destination: '/Users' },
 ];

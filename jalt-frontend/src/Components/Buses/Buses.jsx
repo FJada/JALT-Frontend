@@ -1,12 +1,12 @@
 import React from 'react';
 import classes from '../../global.module.css'
 
-function Trains() {
+function Buses() {
   return (
     <div className={classes.text}>
-      <h1>Trains</h1>
+      <h1>Buses</h1>
     </div>
   );
 }
 
-export default Trains;
+export default Buses;
