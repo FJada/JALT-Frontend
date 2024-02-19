@@ -4,8 +4,8 @@ import axios from 'axios';
 
 function Trains() {
   return (
-    <div className={classes.text}>
-      <h1>Trains</h1>
+    <div className={classes.title}>
+      <h>Trains</h>
     </div>
   );
 }
