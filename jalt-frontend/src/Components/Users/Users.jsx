@@ -13,9 +13,9 @@ function Users({ username }) {
   });
 
 
-  useEffect(()=>{
-    fetchUsers();
-  }, []);
+  // useEffect(()=>{
+  //   fetchUsers();
+  // }, []);
 
 
   const fetchUsers = () => {
@@ -86,7 +86,8 @@ function Users({ username }) {
       <button onClick={addUser} disabled={isLoading}>
         {isLoading ? 'Adding User...' : 'Add User'}
       </button>
-
+      
+      <button onClick={fetchUsers}>Fetch Users</button>
       {users.map((user) => (
         <div className='user-container'>
           <h2>{user.username}</h2>
