@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react';
 import classes from '../../global.module.css'
 import axios from 'axios';
 
-function Buses({BUS_NAME}) {
+
+function Buses({busName}) {
+
   const [error, setError] = useState('Below is our list of buses fetched from our API Server:');
   const [buses, setBuses] = useState([]);
   
@@ -30,7 +32,7 @@ function Buses({BUS_NAME}) {
         )}
       {buses.map((bus) => (
         <div className='bus-container'>
-          <h2>{bus.BUS_NAME}</h2>
+          <h2>{bus.busName}</h2>
           </div>
 
       ))}
