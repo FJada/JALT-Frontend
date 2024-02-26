@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import './navbar.css';
+import classes from '../../global.module.css'
 
 const PAGES = [
   { label: 'Home', destination: '/' },
+  {label:'Buses', destination:'/Buses'},
   { label: 'Trains', destination: '/Trains' },
   { label: 'Account', destination: '/Users' },
+  { label: 'Log-in', destination: '/Log-in' }
+
+
 ];
 
 function NavLink({ page }) {

@@ -1,10 +1,11 @@
 import React from 'react';
-import './trains.css'; 
+import classes from '../../global.module.css'
+import axios from 'axios';
 
 function Trains() {
   return (
-    <div className="text">
-      <h1>Trains</h1>
+    <div className={classes.title}>
+      <h>Trains</h>
     </div>
   );
 }
