@@ -8,28 +8,29 @@ function Buses({busName}) {
   const [error, setError] = useState('Below is our list of buses fetched from our API Server:');
   const [buses, setBuses] = useState([]);
   
-  useEffect(
-    () => {
-      axios.get('http://127.0.0.1:8000/buses')
-      .then((response)=>{
+  const fetchBuses = () => {
+    axios.get('http://127.0.0.1:8000/buses')
+      .then((response) => {
         const busesObject = response.data.Data;
         const keys = Object.keys(busesObject);
         const busesArray = keys.map((key) => busesObject[key]);
         setBuses(busesArray);
-      }) // retrieves buses
-      .catch(() =>{setError('Something went wrong'); });
+      })
+      .catch(() => { setError('Something went wrong'); });
+  };
 
-    },
-    [],
-  );
+
   return (
     <div className={classes.text}>
       <div className={classes.title}> <h>Buses</h></div>
-    
+
+      <button onClick={fetchBuses}>Fetch Buses</button>
+
       {error && (<div className='error-message'>
         {error}
         </div> 
         )}
+        
       {buses.map((bus) => (
         <div className='bus-container'>
           <h2>{bus.busName}</h2>
@@ -42,4 +43,3 @@ function Buses({busName}) {
 }
 
 export default Buses;
-
