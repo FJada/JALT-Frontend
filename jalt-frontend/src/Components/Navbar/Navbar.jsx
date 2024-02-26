@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import classes from '../../global.module.css'
 
 const PAGES = [
-  { label: 'Home', destination: '/' },
+  { label: 'Home', destination: '/Home' },
+  { label: 'Map', destination: '/Map' },
   {label:'Buses', destination:'/Buses'},
   { label: 'Trains', destination: '/Trains' },
   { label: 'Account', destination: '/Users' },
