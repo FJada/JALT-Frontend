@@ -31,11 +31,7 @@ function App() {
         <Route path="Users" element={<Users username="y/n" />} />    
       </Routes>
     
-     
-
     </BrowserRouter>
-
-
   );
 }
 
