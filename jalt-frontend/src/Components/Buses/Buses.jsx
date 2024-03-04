@@ -16,6 +16,12 @@ function Buses({busName}) {
   const [error, setError] = useState('Below is our list of buses fetched from our API Server:');
   const [buses, setBuses] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [newBusData, setNewBusData] = useState({
+    bus_name: '',
+    vehicle_id: '',
+    favorite: false,
+  });
 
   const fetchBuses = () => {
     axios.get('http://127.0.0.1:8000/buses')
@@ -33,10 +39,58 @@ function Buses({busName}) {
     });
   };
 
+  const addBus = () => {
+    setIsLoading(true);
+    axios.post('http://127.0.0.1:8000/buses/add_bus', {
+      bus_name: newBusData.bus_name,
+      vehicle_id: newBusData.vehicle_id,
+      favorite: newBusData.favorite,
+    })
+      .then(() => {
+        // Once user is added successfully, fetch updated user list
+        fetchBuses();
+        setNewBusData({ bus_name: '', vehicle_id: '' , favorite: false});
+      })
+      .catch(() => {
+        setError('Failed to add bus');
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setNewBusData({ ...newBusData, [name]: value });
+  };
 
   return (
     <div className={classes.text}>
       <div className={classes.title}> <h>Buses</h></div>
+
+      <div>
+        <label>Bus Name:</label>
+        <input
+          type="text"
+          name="bus_name"
+          value={newBusData.bus_name}
+          onChange={handleInputChange}
+        />
+      </div>
+      <div>
+        <label>Vehicle ID:</label>
+        <input
+          type="text"
+          name="vehicle_id"
+          value={newBusData.vehicle_id}
+          onChange={handleInputChange}
+        />
+      </div>
+      
+
+      <button onClick={addBus} disabled={isLoading}>
+        {isLoading ? 'Adding Bus...' : 'Add Bus'}
+      </button>
 
       <button onClick={fetchBuses}>Fetch Buses</button>
 
