@@ -41,7 +41,7 @@ function Navbar() {
     <AppBar position="static" sx={appBarStyle}>
       <Toolbar>
         <Typography variant="h6" component="div" style={{ flexGrow: 1, fontSize: '1.5rem', marginTop: '15px' }}>
-          Navbar
+          Routes
         </Typography>
         <nav>
           {PAGES.map((page) => (
