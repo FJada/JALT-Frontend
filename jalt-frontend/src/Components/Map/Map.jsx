@@ -25,7 +25,7 @@ const Map = () => {
   }, [mapboxToken]);
 
   return (
-    <div id="map" style={{ width: '80%', height: '600px', margin: 'auto' }} />
+    <div id="map" style={{ width: '60%', height: '900px', margin: 'auto' }} />
   );
 };
 
