@@ -12,12 +12,6 @@ function Users({ username }) {
     account_id: '',
   });
 
-
-  // useEffect(()=>{
-  //   fetchUsers();
-  // }, []);
-
-
   const fetchUsers = () => {
       axios.get('http://127.0.0.1:8000/users')
       .then((response)=>{

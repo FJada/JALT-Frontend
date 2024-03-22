@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import { AppBar, Toolbar, Typography, Link } from '@mui/material';
 
 const PAGES = [
-  // { label: 'Home', destination: '/Home' },
   { label: 'Home', destination: '/Home' },
   { label: 'Buses', destination: '/Buses' },
   { label: 'Trains', destination: '/Trains' },
   { label: 'Account', destination: '/Users' },
-  { label: 'Log-in', destination: '/Log-in' }
+  { label: 'Login', destination: '/Login' }
 ];
 
 const navLinkStyle = {
