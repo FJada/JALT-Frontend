@@ -13,7 +13,9 @@ import Trains from './Components/Trains';
 import Users from './Components/Users';
 import Buses from './Components/Buses';
 import Map from './Components/Map';
-import Login from './Components/Login';
+import Signup from './Components/Signup-Login';
+import Login from './Components/Signup-Login/Login';
+
 
 function App() {
   return (
@@ -29,7 +31,9 @@ function App() {
         <Route path="Trains" element={<Trains />} />
         <Route path="Buses" element={<Buses />} />
         <Route path="Users" element={<Users username="y/n" />} />   
+        <Route path="Signup-Login" element={<Signup />}/> 
         <Route path="Login" element={<Login />}/> 
+
       </Routes>
     
     </BrowserRouter>
