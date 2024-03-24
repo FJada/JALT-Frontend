@@ -14,7 +14,8 @@ const navLinkStyle = {
   marginRight: '1rem', // Adjust spacing between links
   color: 'inherit', // Inherit text color from parent
   textDecoration: 'none', // Remove default underline
-  fontSize: '1.2rem', // Larger font size
+  fontSize: '1.8rem', // Larger font size
+  fontFamily: "Bebas Neue",
   display: 'inline-block', // Display links horizontally
   marginTop: '15px', // Move down by 15px
   padding: '8px 16px', // Increase padding to make the button bigger
@@ -25,11 +26,12 @@ const navLinkStyle = {
 const appBarStyle = {
   height: '90px', // Set height to 90px
   backgroundColor: '#0f3479', // Set background color
+  borderRadius: '0 0 10px 10px',
 };
 
 function Navbar() {
   const handleHover = (event) => {
-    event.target.style.backgroundColor = '#333'; // Gray background color on hover
+    event.target.style.backgroundColor = '#adcae6'; // Gray background color on hover
   };
 
   const handleLeave = (event) => {
@@ -39,8 +41,8 @@ function Navbar() {
   return (
     <AppBar position="static" sx={appBarStyle}>
       <Toolbar>
-        <Typography variant="h6" component="div" style={{ flexGrow: 1, fontSize: '1.5rem', marginTop: '15px' }}>
-          Routes
+        <Typography variant="h6" component="div" style={{ fontFamily: "Bebas Neue", flexGrow: 1, fontSize: '2.2rem', marginTop: '15px' }}>
+           JALT Routes
         </Typography>
         <nav>
           {PAGES.map((page) => (

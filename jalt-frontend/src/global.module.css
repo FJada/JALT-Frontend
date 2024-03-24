@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300&display=swap");
+
 @font-face {
     font-family: 'Arcade';
     src: url('./Fonts/ARCADE.TTF') format('truetype');
@@ -30,7 +32,7 @@ body {
   color: #fff;
   padding: 25px 0;
   text-align: left;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Bebas Neue", sans-serif;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
