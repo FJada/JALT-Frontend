@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { AppBar, Toolbar, Typography, Link } from '@mui/material';
 
 const PAGES = [
-  { label: 'Home', destination: '/Home' },
+  { label: 'Home', destination: '/' },
   { label: 'Buses', destination: '/Buses' },
   { label: 'Trains', destination: '/Trains' },
   { label: 'Account', destination: '/Users' },
