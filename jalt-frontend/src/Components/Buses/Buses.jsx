@@ -111,7 +111,10 @@ function Buses({busName}) {
       {buses.map((bus) => (
         <div className='bus-container'>
           <h2>{bus.busName}</h2>
-          </div>
+          {/* <span onClick={() => toggleFavorite(index)}>
+            {bus.isFavorite ? '★' : '☆'} 
+          </span> */}
+        </div>
 
       ))}
       
