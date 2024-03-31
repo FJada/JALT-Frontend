@@ -87,11 +87,11 @@ function Trains({trainName}) {
       </div>
       
 
-      <button onClick={addTrain} disabled={isLoading}>
+      <button className={classes.btn} onClick={addTrain} disabled={isLoading}>
         {isLoading ? 'Adding Train...' : 'Add Train'}
       </button>
 
-      <button onClick={fetchTrains}>Fetch Trains</button>
+      <button className={classes.btn} onClick={fetchTrains}>Fetch Trains</button>
 
       {error && (<div className='error-message'>
         {error}
