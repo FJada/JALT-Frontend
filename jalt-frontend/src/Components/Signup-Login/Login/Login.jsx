@@ -59,7 +59,7 @@ function Login() {
           onChange={handleInputChange}
         />
       </div>
-      <button onClick={handleLogin} disabled={isLoading || !loginData.username || !loginData.account_id}>
+      <button className={classes.btn} onClick={handleLogin} disabled={isLoading || !loginData.username || !loginData.account_id}>
         {isLoading ? 'Logging in...' : 'Login'}
       </button>
     </div>
