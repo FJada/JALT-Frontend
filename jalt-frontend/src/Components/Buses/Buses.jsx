@@ -68,6 +68,11 @@ function Buses({busName}) {
     setNewBusData({ bus_name: '', vehicle_id: '', favorite: false });
   };
 
+  const handleFavoriteChange = (event) => {
+    const { name, checked } = event.target;
+    setNewBusData({ ...newBusData, [name]: checked });
+  };
+
   return (
     <div className={classes.text}>
       <div className={classes.title}> Add Bus Route </div>
@@ -89,7 +94,17 @@ function Buses({busName}) {
           onChange={handleInputChange}
         />
       </div>
-      
+      <div>
+        <label>
+          Favorite:
+          <input
+            type="checkbox"
+            name="favorite"
+            checked={newBusData.favorite}
+            onChange={handleFavoriteChange}
+          />
+        </label>
+      </div>      
 
       <button className={classes.btn} onClick={addBus} disabled={isLoading}>
         {isLoading ? 'Adding Bus...' : 'Add Bus'}
