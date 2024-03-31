@@ -58,7 +58,7 @@ function Signup()  {
             onChange={handleInputChangeCreateAccount}
           />
         </div>
-        <button onClick={addUser} disabled={isLoading || !newUserData.username || !newUserData.account_id}>
+        <button className={classes.btn} onClick={addUser} disabled={isLoading || !newUserData.username || !newUserData.account_id}>
           {isLoading ? 'Adding User...' : 'Create Account'}
         </button>
         <div>
