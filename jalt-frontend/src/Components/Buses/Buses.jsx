@@ -64,11 +64,14 @@ function Buses({busName}) {
     setNewBusData({ ...newBusData, [name]: value });
   };
 
+  const handleCancel = () => {
+    setNewBusData({ bus_name: '', vehicle_id: '', favorite: false });
+  };
+
   return (
     <div className={classes.text}>
-      <div className={classes.title}> <h>Buses</h></div>
-
-      <div>
+      <div className={classes.title}> Add Bus Route </div>
+      <div >
         <label>Bus Name:</label>
         <input
           type="text"
@@ -88,18 +91,22 @@ function Buses({busName}) {
       </div>
       
 
-      <button onClick={addBus} disabled={isLoading}>
+      <button className={classes.btn} onClick={addBus} disabled={isLoading}>
         {isLoading ? 'Adding Bus...' : 'Add Bus'}
       </button>
 
-      <button onClick={fetchBuses}>Fetch Buses</button>
+      <button className={classes.btn} onClick={handleCancel}>Cancel</button>
+
+      <div className={classes.title}> <h>All Buses</h></div>
+
+      <button className={classes.btn} onClick={fetchBuses}>Fetch Buses</button>
 
       {error && (<div className='error-message'>
         {error}
         </div> 
         )}
 
-{showNotification && <Notification message="Buses successfully fetched." />}
+      {showNotification && <Notification message="Buses successfully fetched." />}
 
       {buses.map((bus) => (
         <div className='bus-container'>
