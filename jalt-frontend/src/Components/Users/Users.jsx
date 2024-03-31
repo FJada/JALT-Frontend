@@ -77,11 +77,11 @@ function Users({ username }) {
         />
       </div>
 
-      <button onClick={addUser} disabled={isLoading}>
+      <button className={classes.btn} onClick={addUser} disabled={isLoading}>
         {isLoading ? 'Adding User...' : 'Add User'}
       </button>
       
-      <button onClick={fetchUsers}>Fetch Users</button>
+      <button className={classes.btn} onClick={fetchUsers}>Fetch Users</button>
       {users.map((user) => (
         <div className='user-container'>
           <h2>{user.username}</h2>
