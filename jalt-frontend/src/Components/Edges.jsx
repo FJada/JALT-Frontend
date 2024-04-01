@@ -21,7 +21,7 @@ const Edges = () => {
     width: '20%',
     height: '100%',
     position: 'fixed',
-    top: 86,
+    top: 80,
     bottom: 0,
     zIndex: -1,
   };
