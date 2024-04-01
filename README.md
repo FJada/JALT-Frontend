@@ -17,7 +17,7 @@ npm install axios
 
 [Backend Progress and Goals](ProgressAndGoals.md)
 
-# Progress
+### Progress
 
 Working Navbar utilizing routes
 
@@ -34,6 +34,20 @@ Add buses/trains to database
 Add/delete an account
 
 Fetch an acount
+
+### Goals
+
+Routes shown on map
+
+Realtime MTA data for buses and trains
+
+Generating multiple routes
+
+Collections for addresses to be saved
+
+List train/bus arrival times
+
+Create mobile version
 
 ## Backend Repo
 
