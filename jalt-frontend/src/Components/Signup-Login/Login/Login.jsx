@@ -62,6 +62,10 @@ function Login() {
       <button className={classes.btn} onClick={handleLogin} disabled={isLoading || !loginData.username || !loginData.account_id}>
         {isLoading ? 'Logging in...' : 'Login'}
       </button>
+      <div>
+          <span>Don't have an account? </span>
+          <Link to="/Signup-Login">Sign-up</Link>
+        </div>
     </div>
   );
 }
