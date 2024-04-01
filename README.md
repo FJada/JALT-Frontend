@@ -20,12 +20,19 @@ npm install axios
 # Progress
 
 Working Navbar utilizing routes
+
 Centralized styling using a global css module
+
 Dynamic images for aesthetic
+
 Map component
+
 Fetch buses/trains from database
+
 Add buses/trains to database
+
 Add/delete an account
+
 Fetch an acount
 
 ## Backend Repo
