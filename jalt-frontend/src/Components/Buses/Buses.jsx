@@ -63,7 +63,10 @@ function Buses({busName}) {
     const { name, value } = event.target;
     setNewBusData({ ...newBusData, [name]: value });
   };
-
+const clearBuses = () => {
+    setBuses([]);
+  };
+  
   const handleCancel = () => {
     setNewBusData({ bus_name: '', vehicle_id: '', favorite: false });
   };
@@ -74,7 +77,30 @@ function Buses({busName}) {
   };
 
   return (
+
     <div className={classes.text}>
+
+<div className={classes.title}> <h>Buses</h></div>
+
+<button className={classes.btn} onClick={fetchBuses}>See all Buses</button>
+<button className={classes.btn} onClick={clearBuses}>Clear Buses </button>
+
+{error && (<div className='error-message'>
+  {error}
+  </div> 
+  )}
+
+{showNotification && <Notification message="Buses successfully fetched." />}
+
+{buses.map((bus) => (
+  <div className='bus-container'>
+    <h2>{bus.busName}</h2>
+    {/* <span onClick={() => toggleFavorite(index)}>
+      {bus.isFavorite ? '★' : '☆'} 
+    </span> */}
+  </div>
+
+))}
       <div className={classes.title}> Add Bus Route </div>
       <div >
         <label>Bus Name:</label>
@@ -112,26 +138,8 @@ function Buses({busName}) {
 
       <button className={classes.btn} onClick={handleCancel}>Cancel</button>
 
-      <div className={classes.title}> <h>All Buses</h></div>
+     
 
-      <button className={classes.btn} onClick={fetchBuses}>Fetch Buses</button>
-
-      {error && (<div className='error-message'>
-        {error}
-        </div> 
-        )}
-
-      {showNotification && <Notification message="Buses successfully fetched." />}
-
-      {buses.map((bus) => (
-        <div className='bus-container'>
-          <h2>{bus.busName}</h2>
-          {/* <span onClick={() => toggleFavorite(index)}>
-            {bus.isFavorite ? '★' : '☆'} 
-          </span> */}
-        </div>
-
-      ))}
       
     </div>
   );
