@@ -26,6 +26,7 @@ function App() {
         rightImage="./Images/tunnel.jpg"  
       />
 
+    <div style={{ paddingTop: '100px' }}>
       <Routes>
         <Route path ="" element ={<Map />}/>  
         <Route path="Trains" element={<Trains />} />
@@ -35,6 +36,7 @@ function App() {
         <Route path="Login" element={<Login />}/> 
 
       </Routes>
+      </div>
     
     </BrowserRouter>
   );

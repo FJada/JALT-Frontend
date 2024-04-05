@@ -27,6 +27,10 @@ const appBarStyle = {
   height: '90px', // Set height to 90px
   backgroundColor: '#0f3479', // Set background color
   borderRadius: '0 0 10px 10px',
+  position: 'fixed', // Fix position
+  width: '100%', // Take full width of the viewport
+  top: 0, // Position at the top
+  //zIndex: 1000 // Ensure it's above other content
 };
 
 function Navbar() {

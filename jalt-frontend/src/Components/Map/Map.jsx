@@ -25,7 +25,11 @@ const Map = () => {
   }, [mapboxToken]);
 
   return (
+    <div>
+    <div className={classes.title}> Welcome to JALT Routes </div>
+
     <div id="map" style={{ width: '60%', height: '900px', margin: 'auto' }} />
+    </div>
   );
 };
 
