@@ -63,10 +63,19 @@ function Trains({trainName}) {
     setNewTrainData({ ...newTrainData, [name]: value });
   };
 
+  const handleCancel = () => { //deletes any input when User inputs text on form 
+    setNewTrainData({ bus_name: '', vehicle_id: '', favorite: false });
+  };
+
+  const handleFavoriteChange = (event) => { //adds favorite input into train data
+    const { name, checked } = event.target;
+    setNewTrainData({ ...newTrainData, [name]: checked });
+  };
+
   return (
     <div className={classes.text}>
-      <div className={classes.title}> <h>Trains</h></div>
 
+      <div className={classes.title}> Add New Train Route </div>
       <div>
         <label>Train Name:</label>
         <input
@@ -85,11 +94,25 @@ function Trains({trainName}) {
           onChange={handleInputChange}
         />
       </div>
-      
+      <div>
+        <label>
+          Favorite:
+          <input
+            type="checkbox"
+            name="favorite"
+            checked={newTrainData.favorite}
+            onChange={handleFavoriteChange}
+          />
+        </label>
+      </div>
 
       <button className={classes.btn} onClick={addTrain} disabled={isLoading}>
         {isLoading ? 'Adding Train...' : 'Add Train'}
       </button>
+
+      <button className={classes.btn} onClick={handleCancel}>Cancel</button>
+
+      <div className={classes.title}> <h>Trains</h></div>
 
       <button className={classes.btn} onClick={fetchTrains}>Fetch Trains</button>
 
