@@ -63,6 +63,15 @@ function Trains({trainName}) {
     setNewTrainData({ ...newTrainData, [name]: value });
   };
 
+  const handleCancel = () => { //deletes any input when User inputs text on form 
+    setNewTrainData({ bus_name: '', vehicle_id: '', favorite: false });
+  };
+
+  const handleFavoriteChange = (event) => { //adds favorite input into train data
+    const { name, checked } = event.target;
+    setNewTrainData({ ...newTrainData, [name]: checked });
+  };
+
   return (
     <div className={classes.text}>
       <div className={classes.title}> <h>Trains</h></div>
