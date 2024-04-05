@@ -62,6 +62,9 @@ function Trains({trainName}) {
     const { name, value } = event.target;
     setNewTrainData({ ...newTrainData, [name]: value });
   };
+  const clearTrains = () => {
+    setTrains([]);
+  };
 
   const handleCancel = () => { //deletes any input when User inputs text on form 
     setNewTrainData({ bus_name: '', vehicle_id: '', favorite: false });
@@ -74,6 +77,27 @@ function Trains({trainName}) {
 
   return (
     <div className={classes.text}>
+  <div className={classes.title}> <h>Trains</h></div>
+
+  <button className={classes.btn} onClick={fetchTrains}>See all Trains</button>
+  <button className={classes.btn} onClick={clearTrains}>Clear Trains</button>
+
+
+
+  {error && (<div className='error-message'>
+    {error}
+    </div> 
+    )}
+
+  {showNotification && <Notification message="Trains successfully fetched." />}
+
+  {trains.map((train) => (
+    <div className='train-container'>
+      <h2>{train.trainName}</h2>
+      </div>
+
+  ))}
+
 
       <div className={classes.title}> Add New Train Route </div>
       <div>
@@ -112,24 +136,7 @@ function Trains({trainName}) {
 
       <button className={classes.btn} onClick={handleCancel}>Cancel</button>
 
-      <div className={classes.title}> <h>Trains</h></div>
-
-      <button className={classes.btn} onClick={fetchTrains}>Fetch Trains</button>
-
-      {error && (<div className='error-message'>
-        {error}
-        </div> 
-        )}
-
-{showNotification && <Notification message="Trains successfully fetched." />}
-
-      {trains.map((train) => (
-        <div className='train-container'>
-          <h2>{train.trainName}</h2>
-          </div>
-
-      ))}
-      
+    
     </div>
   );
 }
