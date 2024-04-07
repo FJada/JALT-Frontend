@@ -35,8 +35,23 @@ const Map = () => {
           'line-cap': 'round',
         },
         paint: {
-          'line-color': ['get', 'color'],
+          'line-color': [
+            'match', 
+            ['get', 'name'],
+            ['G'], '#6cbe45', // for G
+            ['A', 'C', 'E', 'A-C-E', 'C-E', 'A-C'], '#0039a6',
+            ['B','D','F','M', 'B-D', 'F-M', 'B-D-F-M'],  '#ff6319',
+            ['N', 'Q', 'R', 'W', 'N-Q-R-W', 'N-W', 'N-Q-R', 'R-W', 'N-R', 'N-Q', 'N-R-W'], '#fccc0a',
+            ['1', '2', '3', '1-2-3', '2-3'],'#ee352e',
+            ['4', '5', '6', '4-5-6', '4-5'], '#00933c',
+            ['J', 'Z', 'J-Z'], '#996633',
+            ['L'], '#a7a9ac',
+            ['7'], '#b933ad',
+            ['S'], '#808183',
+            '#000000', // Default color if none of the letters match
+          ],
           'line-width': 2,
+          
         },
       });
     });
