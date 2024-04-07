@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import classes from '../../global.module.css'
 import axios from 'axios';
+import trainlines from './../Data/subway-lines-ver2.json'
 
 
 import mapboxgl from 'mapbox-gl';
@@ -18,6 +19,29 @@ const Map = () => {
       zoom: 12, 
 
     });
+
+    map.on('style.load', () => {
+      map.addSource('subway-lines', {
+        type: 'geojson',
+        data: trainlines,
+      });
+
+      map.addLayer({
+        id: 'subway-lines-layer',
+        type: 'line',
+        source: 'subway-lines',
+        layout: {
+          'line-join': 'round',
+          'line-cap': 'round',
+        },
+        paint: {
+          'line-color': ['get', 'color'],
+          'line-width': 2,
+        },
+      });
+    });
+
+
 
     return () => {
       map.remove(); 
