@@ -50,7 +50,7 @@ const Map = () => {
             ['S'], '#808183',
             '#000000', // Default color if none of the letters match
           ],
-          'line-width': 2,
+          'line-width': 3,
           
         },
       });
