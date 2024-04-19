@@ -115,7 +115,7 @@ const clearBuses = () => {
         <label>Borough:</label>
         <input
           type="text"
-          name="Borough"
+          name="borough"
           value={newBusData.borough}
           onChange={handleInputChange}
         />
