@@ -19,7 +19,7 @@ function Buses({busName}) {
   const [isLoading, setIsLoading] = useState(false);
   const [newBusData, setNewBusData] = useState({
     bus_name: '',
-    vehicle_id: '',
+    borough: '',
     favorite: false,
   });
 
@@ -43,13 +43,13 @@ function Buses({busName}) {
     setIsLoading(true);
     axios.post('http://127.0.0.1:8000/buses/add_bus', {
       bus_name: newBusData.bus_name,
-      vehicle_id: newBusData.vehicle_id,
+      borough: newBusData.borough,
       favorite: newBusData.favorite,
     })
       .then(() => {
         // Once user is added successfully, fetch updated user list
         fetchBuses();
-        setNewBusData({ bus_name: '', vehicle_id: '' , favorite: false});
+        setNewBusData({ bus_name: '', borough: '' , favorite: false});
       })
       .catch(() => {
         setError('Failed to add bus');
@@ -68,7 +68,7 @@ const clearBuses = () => {
   };
   
   const handleCancel = () => {
-    setNewBusData({ bus_name: '', vehicle_id: '', favorite: false });
+    setNewBusData({ bus_name: '', borough: '', favorite: false });
   };
 
   const handleFavoriteChange = (event) => {
@@ -112,11 +112,11 @@ const clearBuses = () => {
         />
       </div>
       <div>
-        <label>Vehicle ID:</label>
+        <label>Borough:</label>
         <input
           type="text"
-          name="vehicle_id"
-          value={newBusData.vehicle_id}
+          name="Borough"
+          value={newBusData.borough}
           onChange={handleInputChange}
         />
       </div>
