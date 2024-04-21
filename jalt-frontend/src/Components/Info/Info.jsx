@@ -68,7 +68,7 @@ function Info() {
       return;
     }
     // Send a request to the appropriate endpoint based on the selected train line
-    axios.post(`http://127.0.0.1:8000/${selectedTrainLine}/endpoint`, data)
+    axios.post(`http://127.0.0.1:8000/endpoint${selectedTrainLine}`, data)
       .then(response => {
         console.log('Response:', response.data);
         // Handle response logic here
