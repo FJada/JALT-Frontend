@@ -4,6 +4,7 @@ import classes from '../../global.module.css';
 
 function Info() {
   const [formFields, setFormFields] = useState([]);
+  const [selectedTrainLine, setSelectedTrainLine] = useState('');
 
   useEffect(() => {
     // Fetch form data from the backend when the component mounts
@@ -48,7 +49,9 @@ function Info() {
 
   // Function to handle input change
   const handleInputChange = (fieldName, value) => {
-    // Handle input change logic here
+    if (fieldName === 'selected_train_line') {
+      setSelectedTrainLine(value);
+    }
   };
 
   // Function to handle form submit
@@ -60,7 +63,19 @@ function Info() {
       data[key] = value;
     });
     console.log('Form submitted:', data);
-    // Handle form submission logic here
+    if (!selectedTrainLine) {
+      console.error('Please select a train line.');
+      return;
+    }
+    // Send a request to the appropriate endpoint based on the selected train line
+    axios.post(`http://127.0.0.1:8000/${selectedTrainLine}/endpoint`, data)
+      .then(response => {
+        console.log('Response:', response.data);
+        // Handle response logic here
+      })
+      .catch(error => {
+        console.error('Error submitting form:', error);
+      });
   };
 
   return (
