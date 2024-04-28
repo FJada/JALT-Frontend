@@ -15,6 +15,8 @@ import Buses from './Components/Buses';
 import Map from './Components/Map';
 import Signup from './Components/Signup-Login';
 import Login from './Components/Signup-Login/Login';
+import User from './Components/Signup-Login/User';
+
 import Info from './Components/Info/Info';
 
 
@@ -37,6 +39,7 @@ function App() {
         <Route path="Signup-Login" element={<Signup />}/> 
         <Route path="Login" element={<Login />}/> 
         <Route path="Info" element={<Info />}/> 
+        <Route path="User" element={<User />}/> 
 
       </Routes>
       </div>

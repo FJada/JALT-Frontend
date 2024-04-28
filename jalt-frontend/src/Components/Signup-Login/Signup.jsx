@@ -8,36 +8,36 @@ function Signup() {
   const [isLoading, setIsLoading] = useState(false);
   const [newUserData, setNewUserData] = useState({
     username: '',
-    account_id: '',
+    password: '',
   });
   const navigate = useNavigate(); // Using useNavigate hook
 
   const addUser = () => {
     setIsLoading(true);
-    axios
-      .post('http://127.0.0.1:8000/add_user', {
-        username: newUserData.username,
-        account_id: newUserData.account_id,
-      })
-      .then(() => {
-        setError('User added successfully');
-        setNewUserData({ username: '', account_id: '' });
-        // Redirect to the /Users page after successful signup
-        navigate("/Users"); // Using navigate() to redirect
-      })
-      .catch(() => {
-        setError('Failed to add user');
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    axios.post('http://127.0.0.1:8000/add_user', {
+      username: newUserData.username,
+      password:  ''
+    })
+    .then((response) => {
+      setError('User added successfully');
+      setNewUserData({ username: '', password: '' });
+      // Redirect to the /User page after successful signup
+      navigate("/User", { state: { username: newUserData.username, password: newUserData.password } });
+    })
+    .catch(() => {
+      setError('Failed to add user');
+    })
+    .finally(() => {
+      setIsLoading(false);
+    });
   };
-
+  
   const handleInputChangeCreateAccount = (event) => {
     const { name, value } = event.target;
-    setNewUserData({ ...newUserData, [name]: value });
+    if (name === 'username') {
+      setNewUserData({ ...newUserData, username: value });
+    }
   };
-
   return (
     <div className={classes.text}>
       <div className={classes.title}>Create Account</div>
@@ -51,25 +51,21 @@ function Signup() {
           onChange={handleInputChangeCreateAccount}
         />
       </div>
-      <div>
-        <label>Account ID:</label>
-        <input
-          type="text"
-          name="account_id"
-          value={newUserData.account_id}
-          onChange={handleInputChangeCreateAccount}
-        />
-      </div>
       <button
         className={classes.btn}
         onClick={addUser}
-        disabled={isLoading || !newUserData.username || !newUserData.account_id}
+        // disabled={isLoading || !newUserData.username || !newUserData.password}
+        disabled={isLoading || !newUserData.username}
+
       >
         {isLoading ? 'Adding User...' : 'Create Account'}
       </button>
       <div>
         <span>Already have an account? </span>
         <Link to="/Login">Login</Link>
+      </div>
+      <div>
+        <Link to="/Forgot">Forgot your password?</Link>
       </div>
     </div>
   );

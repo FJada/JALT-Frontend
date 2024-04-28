@@ -9,10 +9,11 @@ function Users({ username }) {
   const [isLoading, setIsLoading] = useState(false);
   const [newUserData, setNewUserData] = useState({
     username: '',
-    account_id: '',
+    password: '',
   });
   const [deleteUsername, setDeleteUsername] = useState('');
 
+  
   const fetchUsers = () => {
       axios.get('http://127.0.0.1:8000/users')
       .then((response)=>{
@@ -29,12 +30,12 @@ function Users({ username }) {
       setIsLoading(true);
       axios.post('http://127.0.0.1:8000/add_user', {
         username: newUserData.username,
-        account_id: newUserData.account_id,
+        password: newUserData.password,
       })
         .then(() => {
           // Once user is added successfully, fetch updated user list
           fetchUsers();
-          setNewUserData({ username: '', account_id: '' });
+          setNewUserData({ username: '', password: '' });
         })
         .catch(() => {
           setError('Failed to add user');
@@ -85,10 +86,10 @@ function Users({ username }) {
         />
       </div>
       <div>
-        <label>Account ID:</label>
+        <label>Password:</label>
         <input
           type="text"
-          name="account_id"
+          name="Password"
           value={newUserData.account_id}
           onChange={handleInputChange}
         />
