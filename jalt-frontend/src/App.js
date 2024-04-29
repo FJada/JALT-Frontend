@@ -16,6 +16,7 @@ import Map from './Components/Map';
 import Signup from './Components/Signup-Login';
 import Login from './Components/Signup-Login/Login';
 import User from './Components/Signup-Login/User';
+import Forgot from './Components/Signup-Login/Forgot';
 
 import Info from './Components/Info/Info';
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="Login" element={<Login />}/> 
         <Route path="Info" element={<Info />}/> 
         <Route path="User" element={<User />}/> 
+        <Route path="Forgot" element={<Forgot />}/> 
 
       </Routes>
       </div>
