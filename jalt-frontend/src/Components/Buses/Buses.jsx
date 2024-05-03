@@ -17,6 +17,7 @@ function Buses({busName}) {
   const [buses, setBuses] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [searchedBus, setSearchedBus] = useState('');
   const [newBusData, setNewBusData] = useState({
     bus_name: '',
     borough: '',
@@ -35,8 +36,26 @@ function Buses({busName}) {
 
       })
       .catch(() => { setError('Something went wrong');
-      setShowNotification(false); // Hide notification on error
+      setTimeout(() => setError(''), 3000); // Clear error after 3 seconds
     });
+  };
+
+  const searchBus = async () => {
+    try {
+      const response = await axios.get(`http://127.0.0.1:8000/buses/${searchedBus}`);
+      if (response.data) {
+        setBuses([response.data.Data]);
+        setShowNotification(true);
+        setTimeout(() => setShowNotification(false), 3000); // Hide after 3 seconds
+      }
+    } catch (error) {
+      setError('Error searching for bus');
+      setTimeout(() => setError(''), 3000); // Clear error after 3 seconds
+    }    
+  };
+
+  const handleInputChangeBus = (event) => {
+    setSearchedBus(event.target.value);
   };
 
   const addBus = () => {
@@ -81,6 +100,17 @@ const clearBuses = () => {
     <div className={classes.text}>
 
 <div className={classes.title}> <h>Buses</h></div>
+
+<div className={classes.title}>Search for Buses</div>
+<div>
+        <label>Search By Bus Name:</label>
+        <input
+          type="text"
+          value={searchedBus}
+          onChange={handleInputChangeBus}
+        />
+        <button className={classes.btn} onClick={searchBus}>Search</button>
+      </div>
 
 <button className={classes.btn} onClick={fetchBuses}>See all Buses</button>
 <button className={classes.btn} onClick={clearBuses}>Clear Buses </button>
@@ -138,8 +168,9 @@ const clearBuses = () => {
 
       <button className={classes.btn} onClick={handleCancel}>Cancel</button>
 
-     
+      
 
+     
       
     </div>
   );
