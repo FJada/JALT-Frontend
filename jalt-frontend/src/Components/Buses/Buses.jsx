@@ -10,7 +10,6 @@ function Notification({ message }) {
   );
 }
 
-
 function Buses({busName}) {
 
   const [error, setError] = useState('Below is our list of buses fetched from our API Server:');
@@ -33,7 +32,6 @@ function Buses({busName}) {
         setBuses(busesArray);
         setShowNotification(true); // Show notification on success
         setTimeout(() => setShowNotification(false), 3000); // Hide after 3 seconds
-
       })
       .catch(() => { setError('Something went wrong');
       setTimeout(() => setError(''), 3000); // Clear error after 3 seconds
@@ -97,7 +95,7 @@ const clearBuses = () => {
 
   return (
 
-    <div className={classes.text}>
+  <div className={classes.text}>
 
 <div className={classes.title}> <h>Buses</h></div>
 

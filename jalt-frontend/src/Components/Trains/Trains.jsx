@@ -16,6 +16,7 @@ function Trains({trainName}) {
   const [trains, setTrains] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [searchedTrain, setSearchedTrain] = useState('');
   const [newTrainData, setNewTrainData] = useState({
     train_name: '',
     vehicle_id: '',
@@ -31,11 +32,30 @@ function Trains({trainName}) {
         setTrains(trainsArray);
         setShowNotification(true); // Show notification on success
         setTimeout(() => setShowNotification(false), 3000); // Hide after 3 seconds
-
       })
       .catch(() => { setError('Something went wrong');
-      setShowNotification(false); // Hide notification on error
+      setTimeout(() => setError(''), 3000); // Clear error after 3 seconds
     });
+  };
+
+
+  const searchTrain = async () => {
+    try {
+      const response = await axios.get(`http://127.0.0.1:8000/trains/${searchedTrain}`);
+      if (response.data) {
+        setTrains([response.data.Data]);
+        setShowNotification(true);
+        setTimeout(() => setShowNotification(false), 3000); // Hide after 3 seconds
+      }
+    } catch (error) {
+       setError('Train not found'); // Set error message for train not found
+    setTimeout(() => setError(''), 3000); // Clear error after 3 seconds
+    setShowNotification(false); // Hide notification on error
+    }    
+  };
+
+  const handleInputChangeTrain = (event) => {
+    setSearchedTrain(event.target.value);
   };
 
   const addTrain = () => {
@@ -79,10 +99,19 @@ function Trains({trainName}) {
     <div className={classes.text}>
   <div className={classes.title}> <h>Trains</h></div>
 
+  <div className={classes.title}>Search for Trains</div>
+  <div>
+        <label>Search By Train Name:</label>
+        <input
+          type="text"
+          value={searchedTrain}
+          onChange={handleInputChangeTrain}
+        />
+        <button className={classes.btn} onClick={searchTrain}>Search</button>
+      </div>
+
   <button className={classes.btn} onClick={fetchTrains}>See all Trains</button>
   <button className={classes.btn} onClick={clearTrains}>Clear Trains</button>
-
-
 
   {error && (<div className='error-message'>
     {error}
@@ -97,7 +126,6 @@ function Trains({trainName}) {
       </div>
 
   ))}
-
 
       <div className={classes.title}> Add New Train Route </div>
       <div>
