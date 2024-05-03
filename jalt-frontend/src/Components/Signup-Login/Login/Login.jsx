@@ -1,14 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
-import classes from '../../../global.module.css'
+import React, { useState } from 'react';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
+import classes from '../../../global.module.css'
 
 function Login() {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate(); // Using useNavigate hook
+
   const [loginData, setLoginData] = useState({
     username: '',
-    account_id: '',
+    password: '',
   });
 
   const handleInputChange = (event) => {
@@ -22,7 +24,7 @@ function Login() {
       .post('http://127.0.0.1:8000/users/login', loginData)
       .then((response) => {
         // Handle successful login
-        console.log(response.data); // Adjust handling as per your needs
+        console.log(response.data);navigate("/User", { state: { username: loginData.username, password: loginData.password } });
       })
       .catch((error) => {
         // Handle login error
@@ -40,7 +42,7 @@ function Login() {
   return (
     <div className={classes.text}>
       <div className={classes.title}>Login</div>
-      {error && <div className="error-message">{error}</div>}
+      {error && <div className={classes.error}>{error}</div>}
       <div>
         <label>Username:</label>
         <input
@@ -51,21 +53,21 @@ function Login() {
         />
       </div>
       <div>
-        <label>Account ID:</label>
+        <label>Password:</label>
         <input
-          type="text"
-          name="account_id"
-          value={loginData.account_id}
+          type="password"
+          name="password"
+          value={loginData.password}
           onChange={handleInputChange}
         />
       </div>
-      <button className={classes.btn} onClick={handleLogin} disabled={isLoading || !loginData.username || !loginData.account_id}>
+      <button className={classes.btn} onClick={handleLogin} disabled={isLoading}>
         {isLoading ? 'Logging in...' : 'Login'}
       </button>
       <div>
-          <span>Don't have an account? </span>
-          <Link to="/Signup-Login">Sign-up</Link>
-        </div>
+        <span>Don't have an account? </span>
+        <Link to="/Signup-Login">Sign-up</Link>
+      </div>
     </div>
   );
 }

@@ -54,7 +54,6 @@ function Signup() {
       <button
         className={classes.btn}
         onClick={addUser}
-        // disabled={isLoading || !newUserData.username || !newUserData.password}
         disabled={isLoading || !newUserData.username}
 
       >
