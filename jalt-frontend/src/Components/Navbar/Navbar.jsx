@@ -8,7 +8,10 @@ const PAGES = [
   { label: 'Trains', destination: '/Trains' },
   { label: 'Account', destination: '/Users' },
   { label: 'Sign-up / Login', destination: '/Signup-Login' },
-  { label: 'Info', destination: '/Info'}
+  { label: 'Info', destination: '/Info'},
+  { label: 'User', destination: '/User'},
+
+
 ];
 
 const navLinkStyle = {
