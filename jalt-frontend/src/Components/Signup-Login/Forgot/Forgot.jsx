@@ -39,7 +39,9 @@ function Forgot() {
             )}
             <div>
         <span></span>
-        <Link to="/Login">Login</Link>
+        <Link to="/login" className={classes.link}>
+                <button className={classes.btn}>Login</button>
+            </Link>
       </div>
 
         </div>
