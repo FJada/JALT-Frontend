@@ -7,6 +7,8 @@ function User({}) {
   const location = useLocation();
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate(); // Using useNavigate hook
+  const [newUsername, setNewUsername] = useState('');
+
 
   useEffect(() => {
     const storedUserData = JSON.parse(localStorage.getItem('userData'));
@@ -33,6 +35,23 @@ function User({}) {
     navigate('/login');
   };
 
+  const handleUpdateUsername = () => {
+    // Make a request to update the username
+    axios.post('http://127.0.0.1:8000/users/update_username', {
+      username: userData.username,
+      new_username: newUsername
+    })
+      .then(response => {
+        console.log(response.data.message); // Handle success message
+        // Optionally, update the user data in the state
+        setUserData(prevUserData => ({ ...prevUserData, username: newUsername }));
+        // Clear the input field
+        setNewUsername('');
+      })
+      .catch(error => {
+        console.error('Error updating username:', error); // Handle error
+      });
+  };
 
   return (
     <div className={classes.text}>
@@ -41,11 +60,17 @@ function User({}) {
         <div>
           <p>Username: {userData.username}</p>
           <p>Password: {userData.password}</p>
+          <input
+            type="text"
+            value={newUsername}
+            onChange={e => setNewUsername(e.target.value)}
+            placeholder="Enter new username"
+          />
+          <button onClick={handleUpdateUsername}>Update Username</button>
         </div>
       )}
       <button onClick={handleLogout}>Logout</button>
     </div>
   );
 }
-
 export default User;
