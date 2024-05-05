@@ -70,7 +70,7 @@ const Map = () => {
     <div className={classes.title}> Welcome to JALT Routes </div>
     <div className={classes.text}>
 
-        <span>Want to Learn More about the Train Lines? </span>
+        <span>Want to learn more about the train lines? </span>
         <Link to="/Info">Click here</Link>
       </div>
 
