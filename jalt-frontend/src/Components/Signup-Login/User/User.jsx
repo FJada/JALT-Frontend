@@ -8,6 +8,7 @@ function User({}) {
   const [userData, setUserData] = useState(null);
   const navigate = useNavigate(); // Using useNavigate hook
   const [newUsername, setNewUsername] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
 
   useEffect(() => {
@@ -36,6 +37,20 @@ function User({}) {
   };
 
   const handleUpdateUsername = () => {
+    // Reset error message
+    setErrorMessage('');
+  
+    // Validate new username
+    if (!newUsername.trim()) {
+      setErrorMessage('New username cannot be empty.');
+      return; // Exit function early if new username is empty
+    }
+  
+    if (newUsername.trim() === userData.username) {
+      setErrorMessage('New username cannot be the same as the current username.');
+      return; // Exit function early if new username is the same as current username
+    }
+  
     // Make a request to update the username
     axios.post('http://127.0.0.1:8000/users/update_username', {
       username: userData.username,
@@ -50,6 +65,8 @@ function User({}) {
       })
       .catch(error => {
         console.error('Error updating username:', error); // Handle error
+        // Set error message
+        setErrorMessage(error.response.data.message);
       });
   };
 
@@ -66,10 +83,11 @@ function User({}) {
             onChange={e => setNewUsername(e.target.value)}
             placeholder="Enter new username"
           />
-          <button onClick={handleUpdateUsername}>Update Username</button>
+          <button className={classes.btn} onClick={handleUpdateUsername}>Update Username</button>
+          {errorMessage && <p className={classes.error}>{errorMessage}</p>}
         </div>
       )}
-      <button onClick={handleLogout}>Logout</button>
+      <button className={classes.btn} onClick={handleLogout}>Logout</button>
     </div>
   );
 }
