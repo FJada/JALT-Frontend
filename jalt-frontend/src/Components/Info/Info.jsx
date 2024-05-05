@@ -86,7 +86,7 @@ function Info() {
       {/* Render the form */}
       <form onSubmit={handleFormSubmit}>
         {formElements}
-        <button type="submit">Submit</button>
+        <button className={classes.btn} type="submit">Submit</button>
       </form>
     </div>
   );
