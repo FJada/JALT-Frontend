@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import classes from '../../global.module.css'
 import axios from 'axios';
 import trainlines from './../Data/subway-lines-ver2.json'
+import { Link, useNavigate } from 'react-router-dom';
+
 
 
 import mapboxgl from 'mapbox-gl';
@@ -66,6 +68,11 @@ const Map = () => {
   return (
     <div>
     <div className={classes.title}> Welcome to JALT Routes </div>
+    <div className={classes.text}>
+
+        <span>Want to Learn More about the Train Lines? </span>
+        <Link to="/Info">Click here</Link>
+      </div>
 
     <div id="map" style={{ width: '60%', height: '900px', margin: 'auto' }} />
     </div>
