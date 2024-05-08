@@ -10,7 +10,6 @@ Will use subway data to provide the user with the best route to their destinatio
 
 ## Running the App
 First, you need to git clone our server, data, etc. files into this react app. Afterwards, download the following packages.
-> cd JALT-Frontend  
 > Run npm i  
 > npm install react-router-dom  
 > npm install axios  
