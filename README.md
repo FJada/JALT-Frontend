@@ -9,9 +9,13 @@ SE-2024 Fall Group: Jada Forrester, Amy Fouzia, Lalit Mavuduri, Tanvi Saini repo
 Will use subway data to provide the user with the best route to their destination.
 
 ## Running the App
-
-Run npm i
-npm install axios
+First, you need to git clone our server, data, etc. files into this react app. Afterwards, download the following packages.
+> cd JALT-Frontend  
+> Run npm i  
+> npm install react-router-dom  
+> npm install axios  
+> npm install react-map-gl mapbox-gl  
+> npm install @mui/material  
 
 ## Progress and Goals
 
